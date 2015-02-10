@@ -248,15 +248,4 @@ Inlined to avoid required HTTP connection: h5bp.com/r
 		page-break-after: avoid;
 	}
 }
-#container
-{
-	border: 1px solid #000000;
-	width: 719px;
-	height: 571px;
-}
-#container1
-{
-	border: 1px solid #000000;
-	width: 719px;
-	height: 571px;
-}
+

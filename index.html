@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<style type="text/css">
+</style>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -13,7 +15,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -32,24 +34,57 @@
         <script src="js/chart.js"></script>
 
 
+<div id="gasframe":class ="frame";style="width:100%; height:400px;">
+
+
+<table style="width: 100%" class="buttontable">
+				<tr>
+					<td><button name="Abutton1">button</button></td>
+					<td><button name="Abutton1">button</button></td>
+					<td><button name="Abutton1">button</button></td>
+				</tr>
+			</table>
 
 
 
-        <div id="gascontainer" style="width:100%; height:400px;"></div>
-        <div id="stromcontainer" style="width:100%; height:400px;"></div>
+        <div id="gascontainer" style="width:90%; height:400px;" class="chartcontainer">
+			
+		</div>
+		
+		</div>
+
+
+        <div id="stromframe":class ="frame";style="width:100%; height:400px;">
+            <table style="width: 100%" class="buttontable">
+                <tr>
+                    <td>
+
+                        <button name="Abutton1">button</button>
+
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+
+        <div id="stromcontainer" style="width:90%; height:400px;" class="chartcontainer"></div>
+
+            </div>
+
 
 
         <SCRIPT LANGUAGE="JavaScript">
             $(document).ready(function() {
 
-                drawchart("Gaszähler","daily_year","gascontainer","gaszaehler");
+                drawchart("Gaszähler","hourly_year","gascontainer","gaszaehler");
             });
         </SCRIPT>
 
         <SCRIPT LANGUAGE="JavaScript">
             $(document).ready(function() {
 
-                drawchart("Stromzähler","hourly_year","stromcontainer","stromzahler");
+                drawchart("Stromzähler","hourly_year","stromcontainer","stromzaehler");
             });
         </SCRIPT>
 

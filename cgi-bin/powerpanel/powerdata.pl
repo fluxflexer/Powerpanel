@@ -100,7 +100,7 @@ my @valueArray= sqlFetcharray($sql);
 my $akttime = time;
 
 
-my $jsonstring.="{\"name\":\"Gaszaehler\",\"date\":\"$akttime\",\"values\": [";
+my $jsonstring.="{\"name\":\"$sensor\",\"date\":\"$akttime\",\"values\": [";
 
 for (my $index=0 ; $index <= scalar(@valueArray)-1; $index=$index+2){
  # $sensors{$sensorArray[$index]} = $sensorArray[$index +1];
