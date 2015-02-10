@@ -1,17 +1,17 @@
 var chart; // global
 
-function drawchart(charttitle, aggregator) {
+function drawchart(charttitle, aggregator, container, sensor) {
 
     var options = {
         chart: {
-            renderTo: 'container',
+            renderTo: container,
 
             zoomType: 'x'
 
 
         },
         title: {
-            text: 'Gasverbrauch'
+            text: charttitle
         },
         xAxis: {
             type: 'datetime',
@@ -62,7 +62,7 @@ function drawchart(charttitle, aggregator) {
         ]
     };
 
-    $.getJSON("../cgi-bin/powerpanel/powerdata.pl?aggregator=" + aggregator, function (json) {
+    $.getJSON("../cgi-bin/powerpanel/powerdata.pl?aggregator=" + aggregator+";sensor=" + sensor, function (json) {
 
       //$.getJSON("json.data", function (json) {
         options.xAxis.categories = json['category'];

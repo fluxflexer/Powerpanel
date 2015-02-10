@@ -85,11 +85,11 @@ print header('application/json');
 use CGI;
 my $cgi= new CGI;
 my $aggregator = $cgi->param('aggregator');
-
+my $sensor = $cgi->param('sensor');
 
 #print "|$aggregator|\n";
-$aggregator="6hourly_month";
-$sql="SELECT time, value FROM results WHERE (sensorname= 'gaszaehler') AND (resultset='" . $aggregator. "') ORDER BY time ASC" ;
+#$aggregator="6hourly_month";
+$sql="SELECT time, value FROM results WHERE (sensorname='". $sensor . "') AND (resultset='" . $aggregator. "') ORDER BY time ASC" ;
 
 #print $sql;
 

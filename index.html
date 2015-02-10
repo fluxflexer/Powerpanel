@@ -35,17 +35,23 @@
 
 
 
-        <div id="container" style="width:100%; height:400px;"></div>
+        <div id="gascontainer" style="width:100%; height:400px;"></div>
+        <div id="stromcontainer" style="width:100%; height:400px;"></div>
+
 
         <SCRIPT LANGUAGE="JavaScript">
             $(document).ready(function() {
 
-                drawchart("Gaszähler","10");
-
-
+                drawchart("Gaszähler","daily_year","gascontainer","gaszaehler");
             });
         </SCRIPT>
 
+        <SCRIPT LANGUAGE="JavaScript">
+            $(document).ready(function() {
+
+                drawchart("Stromzähler","hourly_year","stromcontainer","stromzahler");
+            });
+        </SCRIPT>
 
     </body>
 </html>

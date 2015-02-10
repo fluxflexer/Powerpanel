@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="powerpanel_wehrendorf" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="wehrendorf_powerpanel" autoUploadExternalChanges="true">
     <serverData>
-      <paths name="powerpanel_wehrendorf">
+      <paths name="wehrendorf_powerpanel">
         <serverdata>
           <mappings>
-            <mapping deploy="/powerpanel" local="$PROJECT_DIR$" web="/" />
-            <mapping deploy="/cgi-bin" local="$PROJECT_DIR$/cgi-bin" web="http://wehrendorf.de/cgi-bin" />
+            <mapping deploy="/public_html/powerpanel" local="$PROJECT_DIR$" web="/powerpanel" />
+            <mapping deploy="/public_html/cgi-bin/powerpanel" local="$PROJECT_DIR$/cgi-bin/powerpanel" web="/cgi-bin/powerpanel" />
           </mappings>
         </serverdata>
       </paths>
