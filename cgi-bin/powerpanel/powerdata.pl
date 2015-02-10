@@ -81,6 +81,7 @@ print header('application/json');
 #6hourly_month
 #daily_year
 #hourly_year
+#monthly_year
 
 use CGI;
 my $cgi= new CGI;
@@ -89,6 +90,14 @@ my $sensor = $cgi->param('sensor');
 
 #print "|$aggregator|\n";
 #$aggregator="6hourly_month";
+
+$sql="SELECT AVG(value), STD(value) FROM results WHERE (sensorname='". $sensor . "') AND (resultset='" . $aggregator. "')";
+my @statArray= sqlFetcharray($sql);
+
+my $avg=@statArray[0];
+my $sdev=@statArray[1];
+
+
 $sql="SELECT time, value FROM results WHERE (sensorname='". $sensor . "') AND (resultset='" . $aggregator. "') ORDER BY time ASC" ;
 
 #print $sql;
@@ -100,7 +109,7 @@ my @valueArray= sqlFetcharray($sql);
 my $akttime = time;
 
 
-my $jsonstring.="{\"name\":\"$sensor\",\"date\":\"$akttime\",\"values\": [";
+my $jsonstring.="{\"name\":\"$sensor\",\"date\":\"$akttime\",\"sdev\":\"$sdev\",\"avg\":\"$avg\",\"values\": [";
 
 for (my $index=0 ; $index <= scalar(@valueArray)-1; $index=$index+2){
  # $sensors{$sensorArray[$index]} = $sensorArray[$index +1];
@@ -113,13 +122,13 @@ $jsonvalue = @valueArray[$index +1];
 
 
 
-if ($jsonvalue < 5000){
+
  $jsonstring.="[$unixtime,$jsonvalue ]";
 
  if ($index+2 < scalar(@valueArray)){
  $jsonstring.=",";
  };
-};
+
 
 
 }

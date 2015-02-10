@@ -34,9 +34,10 @@
 
 
 
+
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-
+        <script src="js/main.js"></script>
         <script src="js/vendor/highcharts.js"></script>
         <script src="js/vendor/jquery-ui.js"></script>
         <script src="js/chart.js"></script>
@@ -45,7 +46,8 @@
 
         <script>
             $(function() {
-                $( "#radio" ).buttonset();
+                $( "#radio1" ).buttonset();
+                $( "#radio2" ).buttonset();
             });
         </script>
 <div id="gasframe":class ="frame";style="width:100%; height:400px;">
@@ -53,7 +55,13 @@
 
 <table style="width: 100%" class="buttontable">
 				<tr>
-					<td><button name="Abutton1">button</button></td>
+                    <div id="radio1">
+                        <input type="radio" id="gasradio0" name="radio"><label for="gasradio0">1min / Tag</label>
+                        <input type="radio" id="gasradio1" name="radio" checked="checked"><label for="gasradio1">15min / Tag</label>
+                        <input type="radio" id="gasradio2" name="radio"><label for="gasradio2">Monatlich / Jahr</label>
+                        <input type="radio" id="gasradio3" name="radio"><label for="gasradio3">Täglich / Jahr</label>
+                        <input type="radio" id="gasradio4" name="radio"><label for="gasradio4">Stündlich / Jahr</label>
+                    </div>
 
 				</tr>
 			</table>
@@ -72,13 +80,15 @@
                 <tr>
                     <td>
 
-                        <form>
-                            <div id="radio">
-                                <input type="radio" id="radio1" name="radio"><label for="radio1">Choice 1</label>
-                                <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Choice 2</label>
-                                <input type="radio" id="radio3" name="radio"><label for="radio3">Choice 3</label>
+
+                            <div id="radio2">
+                                <input type="radio" id="powerradio0" name="radio"><label for="powerradio0">1min / Tag</label>
+                                <input type="radio" id="powerradio1" name="radio" checked="checked"><label for="powerradio1">15min / Tag</label>
+                                <input type="radio" id="powerradio2" name="radio"><label for="powerradio2">Monatlich / Jahr</label>
+                                <input type="radio" id="powerradio3" name="radio" ><label for="powerradio3">Täglich / Jahr</label>
+                                <input type="radio" id="powerradio4" name="radio" ><label for="powerradio4">Stündlich / Jahr</label>
                             </div>
-                        </form>
+
 
                     </td>
                     <td>&nbsp;</td>
@@ -96,14 +106,22 @@
         <SCRIPT LANGUAGE="JavaScript">
             $(document).ready(function() {
 
-                drawchart("Gaszähler","hourly_year","gascontainer","gaszaehler");
-            });
-        </SCRIPT>
+                drawchart("Gaszähler","15min_day","gascontainer","gaszaehler");
 
-        <SCRIPT LANGUAGE="JavaScript">
-            $(document).ready(function() {
 
-                drawchart("Stromzähler","hourly_year","stromcontainer","stromzaehler");
+                 drawchart("Stromzähler","15min_day","stromcontainer","stromzaehler");
+
+
+                $("#radio1").click(function(event) {
+
+                    handlebutton(event.target.id);
+
+                });
+
+                $("#radio2").click(function(event) {
+                    handlebutton(event.target.id);
+
+                });
             });
         </SCRIPT>
 
