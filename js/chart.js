@@ -51,6 +51,7 @@ function drawchart(charttitle, aggregator) {
         },
 
 
+
         series: [
 
             {
