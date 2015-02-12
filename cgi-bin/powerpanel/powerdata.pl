@@ -115,7 +115,7 @@ for (my $index=0 ; $index <= scalar(@valueArray)-1; $index=$index+2){
  # $sensors{$sensorArray[$index]} = $sensorArray[$index +1];
  $counter+=1;
 
-$unixtime= str2time(@valueArray[$index])*1000;
+$unixtime= (str2time(@valueArray[$index])+60*60)*1000;
 $jsonvalue = @valueArray[$index +1];
 
 #print "$unixtime | $jsonvalue \n";
