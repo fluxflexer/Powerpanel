@@ -48,6 +48,7 @@
             $(function() {
                 $( "#radio1" ).buttonset();
                 $( "#radio2" ).buttonset();
+                $( "#radio3" ).buttonset();
             });
         </script>
 <div id="gasframe":class ="frame";style="width:100%; height:400px;">
@@ -101,7 +102,31 @@
 
             </div>
 
+        <div id="waterframe":class ="frame";style="width:100%; height:400px;">
+            <table style="width: 100%" class="buttontable">
+                <tr>
+                    <td>
 
+
+                        <div id="radio3">
+                            <input type="radio" id="waterradio0" name="radio"><label for="waterradio0">1min / Tag</label>
+                            <input type="radio" id="waterradio1" name="radio" checked="checked"><label for="waterradio1">15min / Tag</label>
+                            <input type="radio" id="waterradio2" name="radio"><label for="waterradio2">Monatlich / Jahr</label>
+                            <input type="radio" id="waterradio3" name="radio" ><label for="waterradio3">Täglich / Jahr</label>
+                            <input type="radio" id="waterradio4" name="radio" ><label for="waterradio4">Stündlich / Jahr</label>
+                        </div>
+
+
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+
+            <div id="watercontainer" style="width:90%; height:400px;" class="chartcontainer"></div>
+
+        </div>
 
         <SCRIPT LANGUAGE="JavaScript">
             $(document).ready(function() {
@@ -111,6 +136,7 @@
 
                  drawchart("Stromzähler","15min_day","stromcontainer","stromzaehler");
 
+                drawchart("Wasserzähler","15min_day","watercontainer","wasserzaehler");
 
                 $("#radio1").click(function(event) {
 
@@ -119,6 +145,11 @@
                 });
 
                 $("#radio2").click(function(event) {
+                    handlebutton(event.target.id);
+
+                });
+
+                $("#radio3").click(function(event) {
                     handlebutton(event.target.id);
 
                 });

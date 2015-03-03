@@ -47,6 +47,23 @@ switch (id) {
     case 'gasradio4':
         drawchart("gaszähler","hourly_year","gascontainer","gaszaehler");
         break;
+
+    case 'waterradio0':
+        drawchart("Wasserzähler","1min_day","watercontainer","wasserzaehler");
+        break;
+    case 'waterradio1':
+        drawchart("Wasserzähler","15min_day","watercontainer","wasserzaehler");
+        break;
+    case 'waterradio2':
+        drawchart("Wasserzähler","monthly_year","watercontainer","wasserzaehler");
+        break;
+
+    case 'waterradio3':
+        drawchart("Wasserzähler","daily_year","watercontainer","wasserzaehler");
+        break;
+    case 'waterradio4':
+        drawchart("Wasserzähler","hourly_year","watercontainer","wasserzaehler");
+        break;
 }
 
 }
