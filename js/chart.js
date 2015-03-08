@@ -68,6 +68,7 @@ function drawchart(charttitle, aggregator, container, sensor) {
         options.xAxis.categories = json['category'];
         options.series[0].name = json['name'];
         options.series[0].data = json['values'];
+        options.yAxis.title.text = json['unit'];
         options.yAxis.max = (3*json['avg']);
 
         options.title.text=charttitle +" "+ Date(json['date']*1000);

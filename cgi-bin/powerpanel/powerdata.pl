@@ -97,6 +97,9 @@ my @statArray= sqlFetcharray($sql);
 my $avg=@statArray[0];
 my $sdev=@statArray[1];
 
+$sql="SELECT sensor_einheit FROM sensoren WHERE sensor_name='". $sensor ."';" ;
+my @valueArray= sqlFetcharray($sql);
+my $unit = @valueArray[0];
 
 $sql="SELECT time, value FROM results WHERE (sensorname='". $sensor . "') AND (resultset='" . $aggregator. "') ORDER BY time ASC" ;
 
@@ -109,7 +112,8 @@ my @valueArray= sqlFetcharray($sql);
 my $akttime = time;
 
 
-my $jsonstring.="{\"name\":\"$sensor\",\"date\":\"$akttime\",\"sdev\":\"$sdev\",\"avg\":\"$avg\",\"values\": [";
+
+my $jsonstring.="{\"name\":\"$sensor\",\"date\":\"$akttime\",\"unit\":\"$unit\",\"sdev\":\"$sdev\",\"avg\":\"$avg\",\"values\": [";
 
 for (my $index=0 ; $index <= scalar(@valueArray)-1; $index=$index+2){
  # $sensors{$sensorArray[$index]} = $sensorArray[$index +1];
